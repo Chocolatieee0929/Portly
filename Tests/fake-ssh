@@ -1,0 +1,28 @@
+#!/bin/bash
+socket=""
+check=false
+for ((i=1;i<=$#;i++)); do
+ if [ "${!i}" = '-S' ]; then j=$((i+1)); socket="${!j}"; fi
+ if [ "${!i}" = '-O' ]; then check=true; fi
+done
+if $check; then test -f "$socket"; exit; fi
+case "${!#}" in
+ askpass-check)
+   [[ "$*" == *"BatchMode=no"* ]] || { echo 'interactive authentication disabled' >&2; exit 255; }
+   [[ "${SSH_ASKPASS_REQUIRE:-}" == force && "${PORTLY_SSH_HOST:-}" == askpass-check ]] || { echo 'missing askpass environment' >&2; exit 255; }
+   reply=$("$SSH_ASKPASS" 'Password:')
+   [[ "$reply" == test-only-response ]] || { echo 'invalid askpass response' >&2; exit 255; } ;;
+ denied) echo 'Permission denied (publickey).' >&2; exit 255;;
+ unconfigured) echo 'ssh: Could not resolve hostname aws-proxy: nodename nor servname provided, or not known' >&2; exit 255;;
+ occupied) echo 'bind: Address already in use' >&2; exit 255;;
+ dropped) sleep 2; echo 'Connection reset by peer' >&2; exit 255;;
+esac
+case "${!#}" in
+ release:*) marker="${!#}"; marker="${marker#release:}"
+   if [ ! -f "$marker" ]; then echo 'bind [127.0.0.1]:17890: Address already in use' >&2; exit 255; fi ;;
+ auth:*) marker="${!#}"; marker="${marker#auth:}"
+   if [ ! -f "$marker" ]; then echo 'Permission denied (publickey).' >&2; exit 255; fi ;;
+esac
+touch "$socket"
+trap 'exit 0' TERM
+while true; do sleep 0.1; done

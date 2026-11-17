@@ -1,0 +1,89 @@
+// !$*UTF8*$!
+{
+ archiveVersion = 1; classes = {}; objectVersion = 56; objects = {
+/* Begin PBXBuildFile section */
+		000000000000000000000064 = { isa = PBXBuildFile; fileRef = 0000000000000000000000C8; };
+		000000000000000000000065 = { isa = PBXBuildFile; fileRef = 0000000000000000000000C9; };
+		000000000000000000000066 = { isa = PBXBuildFile; fileRef = 0000000000000000000000CA; };
+		000000000000000000000067 = { isa = PBXBuildFile; fileRef = 0000000000000000000000CB; };
+		000000000000000000000068 = { isa = PBXBuildFile; fileRef = 0000000000000000000000CC; };
+		000000000000000000000069 = { isa = PBXBuildFile; fileRef = 0000000000000000000000CD; };
+		00000000000000000000006A = { isa = PBXBuildFile; fileRef = 0000000000000000000000CE; };
+		00000000000000000000006C = { isa = PBXBuildFile; fileRef = 0000000000000000000000D3; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		00000000000000000000006D = { isa = PBXBuildFile; fileRef = 0000000000000000000000D7; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0000000000000000000000C8 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0000000000000000000000C9 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tunnel.swift; sourceTree = "<group>"; };
+		0000000000000000000000CA = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelFailure.swift; sourceTree = "<group>"; };
+		0000000000000000000000CB = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortListener.swift; sourceTree = "<group>"; };
+		0000000000000000000000CC = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelStore.swift; sourceTree = "<group>"; };
+		0000000000000000000000CD = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		0000000000000000000000CE = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Askpass/main.swift"; sourceTree = "<group>"; };
+		0000000000000000000000D2 = { isa = PBXFileReference; explicitFileType = wrapper.application; path = Portly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0000000000000000000000D3 = { isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = PortlyAskpass; sourceTree = BUILT_PRODUCTS_DIR; };
+		0000000000000000000000D4 = { isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0000000000000000000000D5 = { isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0000000000000000000000D6 = { isa = PBXFileReference; lastKnownFileType = folder; path = Tests; sourceTree = "<group>"; };
+		0000000000000000000000D7 = { isa = PBXFileReference; lastKnownFileType = image.icns; path = Resources/Portly.icns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		00000000000000000000012C = { isa = PBXGroup; children = (0000000000000000000000D7, 00000000000000000000012D, 0000000000000000000000D4, 0000000000000000000000D5, 0000000000000000000000D6, 00000000000000000000012E, ); sourceTree = "<group>"; };
+		00000000000000000000012D = { isa = PBXGroup; children = (0000000000000000000000C8, 0000000000000000000000C9, 0000000000000000000000CA, 0000000000000000000000CB, 0000000000000000000000CC, 0000000000000000000000CD, 0000000000000000000000CE, ); path = Sources; sourceTree = "<group>"; };
+		00000000000000000000012E = { isa = PBXGroup; children = (0000000000000000000000D2, 0000000000000000000000D3, ); name = Products; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXSourcesBuildPhase section */
+		000000000000000000000190 = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (000000000000000000000064, 000000000000000000000065, 000000000000000000000066, 000000000000000000000067, 000000000000000000000068, 000000000000000000000069, ); runOnlyForDeploymentPostprocessing = 0; };
+		000000000000000000000191 = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (00000000000000000000006A, ); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		000000000000000000000192 = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		000000000000000000000193 = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXResourcesBuildPhase section */
+		000000000000000000000194 = { isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (00000000000000000000006D, ); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		000000000000000000000195 = { isa = PBXCopyFilesBuildPhase; buildActionMask = 2147483647; dstPath = Contents/Helpers; dstSubfolderSpec = 1; files = (00000000000000000000006C, ); name = "Embed SSH Authentication Helper"; runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXContainerItemProxy section */
+		0000000000000000000001F4 = { isa = PBXContainerItemProxy; containerPortal = 000000000000000000000001; proxyType = 1; remoteGlobalIDString = 000000000000000000000259; remoteInfo = PortlyAskpass; };
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		0000000000000000000001F5 = { isa = PBXTargetDependency; target = 000000000000000000000259; targetProxy = 0000000000000000000001F4; };
+/* End PBXTargetDependency section */
+
+/* Begin PBXNativeTarget section */
+		000000000000000000000258 = { isa = PBXNativeTarget; buildConfigurationList = 000000000000000000000320; buildPhases = (000000000000000000000190, 000000000000000000000192, 000000000000000000000194, 000000000000000000000195, ); buildRules = (); dependencies = (0000000000000000000001F5, ); name = Portly; productName = Portly; productReference = 0000000000000000000000D2; productType = "com.apple.product-type.application"; };
+		000000000000000000000259 = { isa = PBXNativeTarget; buildConfigurationList = 000000000000000000000321; buildPhases = (000000000000000000000191, 000000000000000000000193, ); buildRules = (); dependencies = (); name = PortlyAskpass; productName = PortlyAskpass; productReference = 0000000000000000000000D3; productType = "com.apple.product-type.tool"; };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		000000000000000000000001 = { isa = PBXProject; attributes = { BuildIndependentTargetsInParallel = YES; LastUpgradeCheck = 1600; }; buildConfigurationList = 000000000000000000000322; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base, ); mainGroup = 00000000000000000000012C; productRefGroup = 00000000000000000000012E; projectDirPath = ""; projectRoot = ""; targets = (000000000000000000000258, 000000000000000000000259, ); };
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		0000000000000000000002BC = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; MACOSX_DEPLOYMENT_TARGET = 12.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; CODE_SIGN_STYLE = Manual; CODE_SIGN_IDENTITY = "-"; ENABLE_APP_SANDBOX = NO; ENABLE_HARDENED_RUNTIME = NO; PRODUCT_NAME = Portly; PRODUCT_BUNDLE_IDENTIFIER = com.chocolatieee.portly; INFOPLIST_FILE = Info.plist; GENERATE_INFOPLIST_FILE = NO; COMBINE_HIDPI_IMAGES = YES; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks", ); SWIFT_OPTIMIZATION_LEVEL = "-Onone"; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; ENABLE_TESTABILITY = YES; DEBUG_INFORMATION_FORMAT = dwarf; }; name = Debug; };
+		0000000000000000000002BD = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; MACOSX_DEPLOYMENT_TARGET = 12.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; CODE_SIGN_STYLE = Manual; CODE_SIGN_IDENTITY = "-"; ENABLE_APP_SANDBOX = NO; ENABLE_HARDENED_RUNTIME = NO; PRODUCT_NAME = Portly; PRODUCT_BUNDLE_IDENTIFIER = com.chocolatieee.portly; INFOPLIST_FILE = Info.plist; GENERATE_INFOPLIST_FILE = NO; COMBINE_HIDPI_IMAGES = YES; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks", ); SWIFT_OPTIMIZATION_LEVEL = "-O"; SWIFT_COMPILATION_MODE = wholemodule; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; }; name = Release; };
+		0000000000000000000002C6 = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; MACOSX_DEPLOYMENT_TARGET = 12.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; CODE_SIGN_STYLE = Manual; CODE_SIGN_IDENTITY = "-"; ENABLE_APP_SANDBOX = NO; ENABLE_HARDENED_RUNTIME = NO; PRODUCT_NAME = PortlyAskpass; SKIP_INSTALL = YES; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; ENABLE_TESTABILITY = YES; DEBUG_INFORMATION_FORMAT = dwarf; }; name = Debug; };
+		0000000000000000000002C7 = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; MACOSX_DEPLOYMENT_TARGET = 12.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; CODE_SIGN_STYLE = Manual; CODE_SIGN_IDENTITY = "-"; ENABLE_APP_SANDBOX = NO; ENABLE_HARDENED_RUNTIME = NO; PRODUCT_NAME = PortlyAskpass; SKIP_INSTALL = YES; SWIFT_OPTIMIZATION_LEVEL = "-O"; SWIFT_COMPILATION_MODE = wholemodule; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; }; name = Release; };
+		0000000000000000000002D0 = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; MACOSX_DEPLOYMENT_TARGET = 12.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; CODE_SIGN_STYLE = Manual; CODE_SIGN_IDENTITY = "-"; ENABLE_APP_SANDBOX = NO; ENABLE_HARDENED_RUNTIME = NO;  SWIFT_OPTIMIZATION_LEVEL = "-Onone"; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; ENABLE_TESTABILITY = YES; DEBUG_INFORMATION_FORMAT = dwarf; }; name = Debug; };
+		0000000000000000000002D1 = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; MACOSX_DEPLOYMENT_TARGET = 12.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; CODE_SIGN_STYLE = Manual; CODE_SIGN_IDENTITY = "-"; ENABLE_APP_SANDBOX = NO; ENABLE_HARDENED_RUNTIME = NO;  SWIFT_OPTIMIZATION_LEVEL = "-O"; SWIFT_COMPILATION_MODE = wholemodule; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; }; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		000000000000000000000320 = { isa = XCConfigurationList; buildConfigurations = (0000000000000000000002BC, 0000000000000000000002BD, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		000000000000000000000321 = { isa = XCConfigurationList; buildConfigurations = (0000000000000000000002C6, 0000000000000000000002C7, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		000000000000000000000322 = { isa = XCConfigurationList; buildConfigurations = (0000000000000000000002D0, 0000000000000000000002D1, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+ };
+ rootObject = 000000000000000000000001;
+}
