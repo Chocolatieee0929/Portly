@@ -86,7 +86,7 @@ final class Tunnel: NSObject, ObservableObject {
 
     private func updateMenu() {
         guard let item else { return }
-        item.title = "\(name) — \(state.title)"
+        item.title = name
         item.state = isConnected ? .on : .off
         let color: NSColor = failure != nil ? .systemRed : (desired ? (isConnected ? .systemGreen : .systemOrange) : .systemGray)
         let dot = NSImage(size: NSSize(width: 10, height: 10), flipped: false) { rect in
@@ -95,13 +95,9 @@ final class Tunnel: NSObject, ObservableObject {
             return true
         }
         item.image = dot
-        if state == .external {
-            item.title = "\(name)"
-            item.toolTip = "127.0.0.1:\(port) → \(host) → 127.0.0.1:\(remotePort)"
-        } else if let failure {
-            let action = waitingForPort ? "waiting to retry \(retryCount + 1)/\(Self.maxRetries) · cancel retry" : "retry"
-            item.title = "\(name) — \(failure.title) · \(action)"
-            item.toolTip = "\(failure.advice)\n\n\(failure.diagnostic)"
+        if let failure {
+            let retry = retryMessage.map { "\n\($0)" } ?? ""
+            item.toolTip = "\(failure.title)\n\(failure.advice)\(retry)\n\n\(failure.diagnostic)"
         } else {
             item.toolTip = "127.0.0.1:\(port) → \(host) → 127.0.0.1:\(remotePort)"
         }
