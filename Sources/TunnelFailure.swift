@@ -19,7 +19,17 @@ struct TunnelFailure: Equatable {
     var advice: String {
         switch kind {
         case .configuration:
-            return "请在 ~/.ssh/config 中配置对应的 Host（aws-proxy 或 local-proxy），并检查 HostName、User、Port 和 IdentityFile。确认密钥文件存在、格式与权限正确后，在终端运行 ssh 对应别名 验证，再重新连接。"
+            let text = diagnostic.lowercased()
+            if let host = ["aws-proxy", "local-proxy"].first(where: { text.contains("could not resolve hostname \($0):") }) {
+                return "请先在 ~/.ssh/config 中配置 \(host)。"
+            }
+            if text.contains("bad owner or permissions") || text.contains("unprotected private key") {
+                return "请检查 SSH 配置或密钥文件的访问权限。"
+            }
+            if text.contains("identity file") || text.contains("identityfile") || text.contains("load key") {
+                return "SSH 密钥无法使用，请检查密钥路径和文件。"
+            }
+            return "请检查 ~/.ssh/config，修正配置后重试。"
         case .authentication:
             if diagnostic.lowercased().contains("keyboard-interactive") {
                 return "交互认证未完成或被服务器拒绝。请重新连接，在弹窗中输入密码或验证码，并确认 SSH 用户正确。"
