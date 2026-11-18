@@ -18,6 +18,19 @@ alert.messageText = "\(host) · SSH 认证"
 alert.informativeText = prompt
 alert.alertStyle = .informational
 
+func presentAuthenticationAlert() -> NSApplication.ModalResponse {
+    let window = alert.window
+    // The helper is a separate accessory app: activation alone does not keep
+    // its prompt above other apps or make it visible in a full-screen Space.
+    window.level = .modalPanel
+    window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+    window.hidesOnDeactivate = false
+    NSApp.activate(ignoringOtherApps: true)
+    window.makeKeyAndOrderFront(nil)
+    window.orderFrontRegardless()
+    return alert.runModal()
+}
+
 let confirmingHost = prompt.lowercased().contains("are you sure you want to continue connecting")
 if confirmingHost {
     // Keep OpenSSH's host fingerprint visible and require an explicit decision.
@@ -28,15 +41,13 @@ if confirmingHost {
     guard diagnostic.contains("fingerprint is") else {
         alert.informativeText = "无法展示服务器指纹，请先在终端连接此主机并核对服务器身份。"
         alert.addButton(withTitle: "取消")
-        NSApp.activate(ignoringOtherApps: true)
-        alert.runModal()
+        _ = presentAuthenticationAlert()
         exit(1)
     }
     alert.informativeText = String(diagnostic.suffix(4096)) + "\n\n" + prompt
     alert.addButton(withTitle: "确认连接")
     alert.addButton(withTitle: "取消")
-    NSApp.activate(ignoringOtherApps: true)
-    guard alert.runModal() == .alertFirstButtonReturn else { exit(1) }
+    guard presentAuthenticationAlert() == .alertFirstButtonReturn else { exit(1) }
     FileHandle.standardOutput.write(Data("yes\n".utf8))
 } else {
     let input = NSSecureTextField(frame: NSRect(x: 0, y: 0, width: 340, height: 26))
@@ -45,8 +56,7 @@ if confirmingHost {
     alert.addButton(withTitle: "继续")
     alert.addButton(withTitle: "取消")
     alert.window.initialFirstResponder = input
-    NSApp.activate(ignoringOtherApps: true)
-    guard alert.runModal() == .alertFirstButtonReturn else { exit(1) }
+    guard presentAuthenticationAlert() == .alertFirstButtonReturn else { exit(1) }
     var response = input.stringValue
     input.stringValue = ""
     FileHandle.standardOutput.write(Data((response + "\n").utf8))
